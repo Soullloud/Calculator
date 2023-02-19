@@ -3,12 +3,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
-    static boolean isRoman = false;
-    static Map<Character, Integer> numbersMap = new HashMap() {{
-        put('I', 1);
-        put('V', 5);
-        put('X', 10);
-    }};
+
 
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
@@ -20,6 +15,8 @@ public class Main {
 
 
     public static String calc(String input) throws Exception {
+        boolean isRoman = false;
+
         int result = 0;
         String[] array = input.split("[ ]");
         if(array.length > 3){
@@ -90,6 +87,11 @@ public class Main {
     }
 
     public static Object[] toNumber(String input) {
+         Map<Character, Integer> numbersMap = new HashMap() {{
+            put('I', 1);
+            put('V', 5);
+            put('X', 10);
+        }};
         try {
             int intValue = Integer.parseInt(input);
             return new Object[]{intValue, false};
@@ -145,13 +147,3 @@ public class Main {
         return result;
     }
 }
-/*
-найти первое число в строке
-найти второе число в строке
-возможно .split("[+-/*\"]");
-найти знак + - * /
-
-сделать проверку на ввод 2 чисел
-сделать проверку на ввод + - * /
-отдельный класс для римских чисел и массив с римскими числами
- */
